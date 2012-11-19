@@ -23,7 +23,9 @@
     .navbar.navbar-top
       .navbar-inner
         .container
-          = link_to "Grocery", root_url, class: "brand"
+          = link_to root_url, class: "brand" do
+            = glyph "shopping-cart"
+            Brando's Grocery List
 
     .container-fluid= yield
     = yield(:js).presence
