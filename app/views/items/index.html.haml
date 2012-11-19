@@ -1,0 +1,13 @@
+= form_for Item.new, url: list_items_url(params[:list_id]) do |f|
+  = f.text_field :name, placeholder: "Name"
+  = f.hidden_field :list_id, value: params[:list_id]
+  = f.submit "Add", class: "btn btn-primary"
+
+- if @items.present?
+  .items
+    - @items.each do |item|
+      .item.clearfix
+        = link_to "Delete", list_item_url(params[:list_id], item), method: :delete, class: "btn btn-danger btn-small"
+        %p= item.name
+
+
